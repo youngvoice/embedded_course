@@ -1,0 +1,14 @@
+XT2IN 4MHZ
+XIN 32.768KHZ
+
+
+uart
+timerA
+TFT
+
+
+配置UART
+初始化TFT
+打开timer
+
+通过定时中断,定时1s,1s到后通过uart发送一个字符,接受中断中将数据通过Tft显示出来
