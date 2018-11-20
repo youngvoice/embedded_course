@@ -17,16 +17,16 @@ void TimerA_Init(void);		//定时器TA初始化函数
 
 void main(void)
 {
-	//关闭看门狗
+	WDTCTL = WDTPW + WDTHOLD;//关闭看门狗
 
-	//初始化RS232接口
-	//初始化TFT屏幕
-	//TFT清屏
-	//初始化定时器
-	//开启中断
+	UART_RS232_Init();		//初始化RS232接口
+	initTFT();				//初始化TFT屏幕
+	etft_AreaSet(0,0,319,239,0);	//TFT清屏
+	TimerA_Init();					//初始化定时器
+	_EINT();				//开启中断
 
-	//TFT屏显示发送数据的标识
-	//TFT屏显示接收数据的标识
+	etft_DisplayString("Send Data: ",80,100,65535,0);	//TFT屏显示发送数据的标识
+	etft_DisplayString("Recv Data: ",80,140,65535,0);	//TFT屏显示接收数据的标识
 
 	while(1)
 	{
